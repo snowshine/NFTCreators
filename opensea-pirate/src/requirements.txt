@@ -1,0 +1,6 @@
+###### Requirements without Version Specifiers ######
+requests
+boto3
+
+###### Requirements with Version Specifiers ######
+Flask==2.0.3
