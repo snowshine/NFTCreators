@@ -1,7 +1,9 @@
 #!/bin/bash
+DEPLOYMENT_REGION="us-east-2"
 S3_FOLDER_ROOT="s3://nf2-lambdas/"
 PACKAGE_FOLDER="package"
 VALIDATION_PACKAGE_ZIP="lambda-validation-package.zip"
+DOCKER_VERSION="v0.0.1"
 
 if [ -z "$1" ]
   then
@@ -54,14 +56,28 @@ fi
 
 if [ $1 == "docker" ]
 then
-    echo "Not implemented"
+    if [ -z $2 ]
+    then
+        echo "No account id provide. Unable to deploy Dockerfile."
+        exit 0
+    fi
+
+    docker build --tag $DOCKER_VERSION .
+
+    aws ecr get-login-password --profile nf2 --region $DEPLOYMENT_REGION | docker login --username AWS --password-stdin "$2.dkr.ecr.$DEPLOYMENT_REGION.amazonaws.com"
+    tagged=$(docker images | grep $DOCKER_VERSION | cut -d " " -f 8)
+
+    docker tag $tagged "$2.dkr.ecr.$DEPLOYMENT_REGION.amazonaws.com/nf2-dev:$DOCKER_VERSION"
+
+    docker push "$2.dkr.ecr.$DEPLOYMENT_REGION.amazonaws.com/nf2-dev:$DOCKER_VERSION"
+
     exit 1
 fi
 
 if [ $1 == "cloudformation" ]
 then
     echo "Deploying cloudformation template..."
-    aws cloudformation deploy --region us-east-2 --profile nf2 --template-file data-arch.yaml --stack-name NF2Data --capabilities CAPABILITY_IAM
+    aws cloudformation deploy --region $DEPLOYMENT_REGION --profile nf2 --template-file data-arch.yaml --stack-name NF2Data --capabilities CAPABILITY_IAM
     exit 1
 fi
 
