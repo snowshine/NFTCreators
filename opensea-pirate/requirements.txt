@@ -1,5 +1,0 @@
-###### Requirements without Version Specifiers ######
-requests
-
-###### Requirements with Version Specifiers ######
-Flask==2.0.3

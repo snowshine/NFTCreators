@@ -65,8 +65,8 @@ then
     docker build --tag $DOCKER_VERSION .
 
     aws ecr get-login-password --profile nf2 --region $DEPLOYMENT_REGION | docker login --username AWS --password-stdin "$2.dkr.ecr.$DEPLOYMENT_REGION.amazonaws.com"
-    tagged=$(docker images | grep $DOCKER_VERSION | cut -d " " -f 8)
-
+    tagged=$(docker images | grep $DOCKER_VERSION | head -n 1 | tr -s ' ' | cut -d ' ' -f 3)
+    
     docker tag $tagged "$2.dkr.ecr.$DEPLOYMENT_REGION.amazonaws.com/nf2-dev:$DOCKER_VERSION"
 
     docker push "$2.dkr.ecr.$DEPLOYMENT_REGION.amazonaws.com/nf2-dev:$DOCKER_VERSION"
