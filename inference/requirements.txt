@@ -1,0 +1,6 @@
+keras==2.7.0
+tensorflow-cpu==2.7.0
+
+boto3
+daemon
+matplotlib
