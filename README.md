@@ -23,7 +23,7 @@ Get a copy of source code of this project by simply running the git clone comman
 git clone https://github.com/snowshine/NFTCreators.git
 ```
 
-### Requirement
+### Requirements
 
 Before running the project, we have to install all the dependencies from requirements.txt
 
