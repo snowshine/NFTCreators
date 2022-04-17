@@ -1,0 +1,6 @@
+<div class="carousel">
+    <app-collection-card
+        *ngFor="let collection of (collections$ | async)?.collections"
+        [collectionName]="collection"
+    ></app-collection-card>
+</div>

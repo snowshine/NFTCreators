@@ -1,0 +1,26 @@
+.cardContainer {
+    background-color: #C4C4C422;
+    border-radius: 16px;
+    color: white;
+    min-width: 16rem;
+    cursor: pointer;
+    padding-top:3rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+    text-align: center;
+}
+.cardContainer:hover {
+    outline: 1px solid #C4C4C422;
+    box-shadow: 0px 0px 24px #067640;
+}
+.cardContainer p {
+    margin: 0;
+    padding: 1rem 1rem 0;
+}
+.floating-tag {
+    font-size: 36px;
+    left: 7rem;
+    position: absolute;
+    text-shadow: 0px 0px 8px #067640;
+    top: -22px;
+}

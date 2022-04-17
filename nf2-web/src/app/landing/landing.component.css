@@ -1,0 +1,106 @@
+.landing {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50vh;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 0.5rem;
+    padding: 0 3rem;
+    height: 60vh;
+    row-gap: 1rem;
+}
+
+.landing .row-spacer {
+    min-height: 14rem;
+}
+
+.landing .primary-button {
+    font-family: "Righteous";
+    border-radius: 2rem;
+    border: none;
+    background: rgb(123,189,149);
+    background: linear-gradient(90deg, rgba(123,189,149,1) 0%, rgba(123,189,155,0.7) 60%);
+    color: white;
+    min-width: 12rem;
+    padding: 1rem 0;
+}
+
+.landing .primary-button:hover {
+    cursor: pointer;
+    background: rgba(123,189,155,0.9);
+    text-shadow: 0 0 4px #EEEEEE85;
+}
+
+.landing .link-button {
+    font-family: "Righteous";
+    border-radius: 2rem;
+    background: transparent;
+    border: none;
+    color: #6B6B6B;
+    min-width: 12rem;
+    padding: 1rem 0;
+}
+
+.landing .link-button:hover {
+    color: #111;
+    cursor: pointer;
+    background: rgba(221, 221, 221, 0.9);
+}
+
+.squares {
+    background: #7BBD96;
+    position: absolute;
+    border-radius: 0.25rem;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+@media screen and (max-width: 575px) {
+    .squares {
+        visibility: hidden;
+    }
+}
+
+.squares.squares-1 {
+    bottom: 3rem;
+    left: 4rem;
+}
+
+.squares.squares-2 {
+    bottom: 0rem;
+    left: 0rem;
+    width:2.75rem;
+    height: 2.5;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.squares.squares-3 {
+    bottom: 1.25rem;
+    left: 12rem;
+}
+
+.squares.squares-4 {
+    bottom: 9.25rem;
+    left: 7rem;
+}
+
+.squares.squares-5 {
+    bottom: 11rem;
+    left: 3rem;
+}
+
+.squares.squares-6 {
+    top: 10.5rem;
+    right: 2rem;
+}
+
+.squares.squares-7 {
+    top: 6rem;
+    right: 0rem;
+    width: 2.5rem;
+    border-radius: 0.25rem 0 0 0.25rem;
+}

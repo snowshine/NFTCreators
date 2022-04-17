@@ -1,0 +1,36 @@
+.wizard-header {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 4rem 0.5rem;
+    padding: 0 3rem;
+}
+
+.wizard-header input {
+    border: 1px solid grey;
+    border-radius: 2rem;
+    padding: 0 1rem;
+}
+
+.wizard-header h3 {
+    font-weight: 400;
+}
+
+.content {
+    margin: 1rem 4rem;
+}
+
+.content .progress-container {
+    min-height: 60vh;
+    display: grid;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.progress-container p {
+    color: white;
+    font-size: 14px;
+}

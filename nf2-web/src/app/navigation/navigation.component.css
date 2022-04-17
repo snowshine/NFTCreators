@@ -1,0 +1,55 @@
+.toolbar {
+    padding: 0 3rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-weight: 600;
+}
+
+.navigation ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.navigation li {
+    padding-right: 1rem;
+}
+
+a,
+a:visited,
+a:hover {
+  font-weight: 400; 
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  color: grey;
+}
+
+
+@media screen and (max-width: 575px) {
+    .toolbar {
+      color: white;
+    }
+    a {
+      color: white;
+      display: none;
+      visibility: hidden;
+    }
+    a:hover {
+      color: #EEE;
+    }
+    .toolbar::after {
+      display: none;
+      visibility: hidden;
+    }
+}
