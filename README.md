@@ -6,10 +6,10 @@
 
 ### Umich MADS Capstone Project Winter 2022
 
-&nbsp;&nbsp;[project homepage](https://snowshine.github.io/NFTCreators) |  [web UI](https://nf2.dev/) |   
+&nbsp;&nbsp;[Project Homepage](https://snowshine.github.io/NFTCreators) | [Web App](https://nf2.dev/) |   
 
 > This is a capstone project for University of Michigan Master of Applied Data Science program (MADS). <br>
-The goal of this project is to build a **Generative Adversarial Network (GAN)** and train it with NFT collections, so it can generate new NFTs in the same style. Also, a web application is created to make our GAN available to the public.
+The goal of this project is to build a **Generative Adversarial Network (GAN)** and train it with NFT collections, so it can generate new NFTs in the same style. A web application is created to make the GAN available to the public.
 
 ## Quick Start
 
@@ -42,27 +42,10 @@ python app.py
 
 ## Project Structure
 
-This project has four main parts: data collection, metadata analysis, GAN model and training, web app to generate tokens from the trained model.
+This project has four main parts: 
+- data collection (folder: opensea-pirate and data)
+- metadata analysis (folder: metadata-analysis)
+- GAN model and training (folder: gan, generators)
+- web application for trained model inference (folder: inference, nf2-web)
 
-### Data Collection
-<p align=center>
-    <img src="./docs/data-diagram.png">
-</p>
-
-
-### Metadata Analysis
-
-
-### GAN model and training
-<p align=center>
-    <img src="./docs/gdrive_folder_structure.JPG">
-</p>
-
-<p align=center>
-    <img src="./docs/gan_train_flow.JPG">
-</p>
-
-### Web App
-<p align=center>
-    <img src="./docs/web-design.png">
-</p>
+Further information please check README.md under each section.
