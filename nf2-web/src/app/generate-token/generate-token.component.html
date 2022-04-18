@@ -1,0 +1,16 @@
+<div class="wizard-header">
+    <h3> Select a collection</h3>
+</div>
+      
+<div class="content" role="main">
+    <div
+        class='progress-container'
+        *ngIf="((store$ | async)?.collections?.length === 0); else collectionVisible"
+    >
+        <mat-progress-bar [style.width.px]="500" mode="query"></mat-progress-bar>
+        <p> Loading Collections... </p>
+    </div>
+    <ng-template #collectionVisible>
+        <app-collection-carousel></app-collection-carousel>
+    </ng-template>
+</div>

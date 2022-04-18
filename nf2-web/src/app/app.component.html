@@ -1,0 +1,26 @@
+<style>
+  @font-face {
+    font-family: "Righteous";
+    src: url(assets/fonts/Righteous-Regular.ttf) format("truetype");
+  }
+  :host {
+    font-family: "Righteous", BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .app-wrapper {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #07042D;
+  }
+</style>
+
+<!-- Toolbar -->
+<div id="app-wrapper" class="app-wrapper">
+  <app-navigation></app-navigation>
+  <router-outlet></router-outlet>
+</div>

@@ -159,7 +159,6 @@ class InferenceDaemon:
             for message in messages:
                 self.process_message(message)
 
-            break
             self.sleep()
 
 if __name__ == "__main__":

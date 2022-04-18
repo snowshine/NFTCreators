@@ -1,0 +1,107 @@
+<div class="wizard-header">
+    <h3> {{ slugId }} </h3>
+</div>
+<div class="content" role="main">
+    <div class="collection-overview">
+        <div class="grid-entry grid-generate">
+            <div class="generate-header">
+                <h4>new token</h4>
+                <div class="button-jar">
+                    <small>
+                        <button
+                            mat-icon-button
+                            *ngIf="((status$ | async)?.asset)"
+                            (click)="downloadAsset()"
+                            #tooltip="matTooltip"
+                            matTooltip="Download token"
+                        >
+                            <mat-icon>cloud_download</mat-icon>
+                        </button>
+                    </small>
+                    <small>
+                        <button 
+                            *ngIf="(status$ | async)?.status !== 'NOT_STARTED'"
+                            (click)="resetGenerator()"
+                            mat-icon-button
+                            aria-label="Reset generator icon"
+                            #tooltip="matTooltip"
+                            matTooltip="Reset token generation"
+                        >
+                            <mat-icon>restart_alt</mat-icon>
+                        </button>
+                    </small>
+                </div>
+            </div>
+            <div class="token-container">
+                <button *ngIf="(status$ | async)?.status === 'NOT_STARTED'; else loadingBlock" (click)="startGenerator()" class="primary-button"> Generate Now </button>
+                <ng-template #loadingBlock>
+                    <mat-progress-bar *ngIf="!((status$ | async)?.asset)" [style.width.px]="200" mode="query"></mat-progress-bar>
+                    <small *ngIf="!((status$ | async)?.asset)" [style.paddingTop.px]="12" [style.fontSize.px]="10">
+                        status: {{(status$ | async)?.jobStatus || 'NOT_STARTED'}}
+                    </small>
+                    <img *ngIf="((status$ | async)?.asset)" [src]="(status$ | async)?.asset" class="nf2-token" alt="Generated faux token">
+                </ng-template>
+            </div>
+        </div>
+        <div class="grid-entry">
+            <h4>total assets</h4>
+            <span class="stats-value" *ngIf="stats; else unavailable">
+                {{stats.total_assets | number}}
+            </span>
+        </div>
+        <div class="grid-entry">
+            <h4>unique traits</h4>
+            <span class="stats-value" *ngIf="stats; else unavailable">
+                {{stats.unique_traits | number}}
+            </span>
+        </div>
+        <div #containerRef class="grid-entry grid-chart-traits">
+            <h4>top traits</h4>
+            <ngx-charts-bar-horizontal
+                *ngIf="trait_data; else unavailable"
+                [view]="[containerRef.offsetWidth - 50, 200]"
+                [results]="trait_data"
+                [yAxis]="showXAxis"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                yAxisLabel="trait"
+                style="fill: white;"
+            >
+            </ngx-charts-bar-horizontal>
+        </div>
+        <div #salesRef class="grid-entry grid-chart-sales">
+                <h4>asset sales</h4>
+                <ngx-charts-bar-vertical
+                    *ngIf="sales_data; else unavailable"
+                    [view]="[salesRef.offsetWidth - 50, 200]"
+                    [results]="sales_data"
+                    [xAxis]="showXAxis"
+                    [yAxis]="showXAxis"
+                    [showXAxisLabel]="showXAxisLabel"
+                    [showYAxisLabel]="showYAxisLabel"
+                    xAxisLabel="log(USD)"
+                    yAxisLabel="log(asset count)"
+                    style="fill: white;"
+                >
+                </ngx-charts-bar-vertical>
+        </div>
+        <div class="grid-entry">
+            <h4>max sale price (USD)</h4>
+            <span class="stats-value" *ngIf="stats; else unavailable">
+                {{stats.max | currency}}
+            </span>
+        </div>
+        <div class="grid-entry">
+            <h4>mean sale price (USD)</h4>
+            <span class="stats-value" *ngIf="stats; else unavailable">
+                {{stats.mean | currency}}
+            </span>
+        </div>
+    </div>
+</div>
+<ng-template #unavailable>
+    <div class="unavailable-parent">
+        <h5> DATA UNAVAILABLE </h5>
+    </div>
+</ng-template>

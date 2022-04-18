@@ -1,0 +1,17 @@
+.carousel {
+    display: flex;
+    padding: 0 3rem;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 575px) {
+    .carousel {
+        align-content: space-around;
+        justify-content: center;
+    }
+}
