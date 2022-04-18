@@ -1,5 +1,4 @@
-# ### Imports and setup
-
+# Imports and setup
 import tensorflow as tf
 from tensorflow.keras.layers import Input, Reshape, Dropout, Dense 
 from tensorflow.keras.layers import Flatten, BatchNormalization
@@ -341,7 +340,8 @@ class dcgan:
     def save_models(self, epoch):
         self.GENERATOR.save(self.output_path + 'generator'+ str(epoch))
         self.DISCRIMINATOR.save(self.output_path + 'discriminator'+str(epoch))
-        # save another copy of the latest one for convinence working with google drive
+        # save another copy of the latest one for convinence.
+        # due to google drive unable to copy folders
         self.GENERATOR.save(self.output_path + 'generator')
         self.DISCRIMINATOR.save(self.output_path + 'discriminator')
     
@@ -354,7 +354,7 @@ class dcgan:
         gname = "generator" + str(epoch)
         dname = "discriminator"+ str(epoch)
     
-      # load_weights?
+      # load model
       GENERATOR = load_model(os.path.join(path, gname), compile=False)
       DISCRIMINATOR = load_model(os.path.join(path, dname), compile=False)
     
@@ -392,15 +392,14 @@ class dcgan:
         for i in range(generated_images.shape[0]):
             plt.subplot(4, 4, i+1)
             plt.imshow(generated_images[i])
-            # plt.imshow(generated_images[i, :, :, 0] * 127.5 + 127.5, cmap='gray')      
-            # plt.imshow(generated_images[i, :, :, 0] * 127.5 + 127.5)
+            # plt.imshow(generated_images[i, :, :, 0] * 127.5 + 127.5, cmap='gray')            
             plt.axis('off')
     
         plt.savefig(output)
         plt.show()
 
     def view_generated_sample(self):
-        # an initial sample view
+        # call generator to generate an image
         noise = tf.random.normal([1, self.seed_dim])
         generated_image = self.GENERATOR(noise, training=False)
         # scale from [-1,1] to [0,1]  
@@ -408,7 +407,9 @@ class dcgan:
         generated_image = generated_image.astype('float32')
     
         self.view_img_grid(generated_image, 'A Sample from Generator', 1)
+        
         decision = self.DISCRIMINATOR(generated_image)
+        
         return decision
     
     def view_orig_images(self, dataset, grid_size = 4):
@@ -417,12 +418,13 @@ class dcgan:
         dataset: tensorflow dataset in range [-1,1]
         grid_size: nxn grid containing images
         """     
-        # get one batch of data
+        # get one batch of training data which is the origin images
         dataset = next(iter(dataset))
+        # pick images need for the display grid
         imgs = dataset.numpy()[:grid_size * grid_size]    
         # scale from [-1,1] back to [0,1] for dispaly
         imgs = (imgs + 1) / 2.0    
-        
+        # show the grid
         self.view_img_grid(imgs, 'Original Training Images', grid_size)
             
     def view_img_grid(self, imgs, title='', grid_size = 4):    

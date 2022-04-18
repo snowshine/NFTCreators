@@ -1,8 +1,3 @@
-# ### IS and FID calculation
-# Reference: 
-# - machinelearningmastery.com/how-to-implement-the-inception-score-from-scratch-for-evaluating-generated-images/
-# - machinelearningmastery.com/how-to-implement-the-frechet-inception-distance-fid-from-scratch/
-
 import numpy as np
 from numpy.random import shuffle
 from math import floor
@@ -13,7 +8,8 @@ import pandas as pd
 
 import tensorflow as tf
 from tensorflow.keras.applications.inception_v3 import InceptionV3, preprocess_input
-from tensorflow.keras.models import Sequential, Model, load_model
+#from tensorflow.keras.models import Sequential, Model, load_model
+from tensorflow.keras.models import load_model
 
 # from keras.datasets.mnist import load_data
 from keras.datasets import cifar10
@@ -23,14 +19,17 @@ class ganevaluation:
 		# load the inception v3 model
 		# model = InceptionV3(include_top=False, pooling='avg', input_shape=(299,299,3))
 		self.model = InceptionV3()
+
 		self.collection = collection
-		self.batch_size = preview_img_square * preview_img_square
-		self.preview_img_square = preview_img_square # preview generated samples in square, i.e 3x3=9
 		self.data_path = datapath
 		self.output_path = outputpath + collection
 		self.generator_path = outputpath + collection + '/generator'
+        
+		self.batch_size = preview_img_square * preview_img_square
+		self.preview_img_square = preview_img_square # preview generated samples in square, i.e 3x3=9
 
 	# calculate inception score
+    # Reference: machinelearningmastery.com/how-to-implement-the-inception-score-from-scratch-for-evaluating-generated-images/
 	def calculate_inception_score(self, images, n_split=10, eps=1E-16):
 		if images.shape[0] < n_split:
 			n_split = images.shape[0]
@@ -61,6 +60,7 @@ class ganevaluation:
 		return is_avg, is_std
  
 	# calculate frechet inception distance
+    # Reference: machinelearningmastery.com/how-to-implement-the-frechet-inception-distance-fid-from-scratch/
 	def calculate_fid(self, images1, images2):
 		# calculate activations
 		act1 = self.model.predict(images1)
