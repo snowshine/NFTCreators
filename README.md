@@ -23,12 +23,7 @@ git clone https://github.com/snowshine/NFTCreators.git
 
 ### Requirements
 
-Before running the project, we have to install all the dependencies from requirements.txt
-
-``` pip
-pip install -r requirements.txt
-```
-Please note that you need a GPU to run the GAN model training. Most of the NFT collection training of this project is done through Google Colab with GPU.
+Each section has its own running environment and dependencies, please refer to the requirements.txt or README.md under each section.
 
 
 ## Module Relationship and Architecture
