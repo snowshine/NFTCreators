@@ -49,6 +49,6 @@ This project has four main modules:
     - code: inference, nf2-web
     - input: generator, metadata analysis
 
-<img src='docs/architecture.JPG' align="left">
+<img src='docs/architecture.jpg' align="left">
 
 For details of each module please check README.md under each section.
