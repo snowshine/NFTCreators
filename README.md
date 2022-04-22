@@ -6,16 +6,14 @@
 
 ### Umich MADS Capstone Project Winter 2022
 
-&nbsp;&nbsp;[Project Homepage](https://snowshine.github.io/NFTCreators) | [Web App](https://nf2.dev/) |   
+&nbsp;&nbsp;[Project Home](https://nf2.dev/blog) | [Web App](https://nf2.dev/) | 
 
-> This is a capstone project for University of Michigan Master of Applied Data Science program (MADS). <br>
-The goal of this project is to build a **Generative Adversarial Network (GAN)** and train it with NFT collections, so it can generate new NFTs in the same style. A web application is created to make the GAN available to the public.
+> This is a capstone project for University of Michigan Master of Applied Data Science(MADS) program. <br>
+The goal of this project is to explore **Non-Fungible Token (NFT)**, build a **Generative Adversarial Network (GAN)** model and train it with various NFT collections, so it can generate new NFTs in the same style as the collection. The outcome of the project is an **end-to-end web application** that enable users to generate a similar tokens through the trained GAN model.
 
 ## Quick Start
 
-These instructions will get you a copy of the project up and running on your local machine.
-
-### Source Code
+### Clone this Repository
 
 Get a copy of source code of this project by simply running the git clone command.
 
@@ -32,20 +30,25 @@ pip install -r requirements.txt
 ```
 Please note that you need a GPU to run the GAN model training. Most of the NFT collection training of this project is done through Google Colab with GPU.
 
-### Hosting ??
 
-Last, get the project hosted on your local machine with a single command.
+## Module Relationship and Architecture
 
-``` python
-python app.py
-```
+This project has four main modules: 
+- data collection
+    - code: opensea-pirate 
+    - ouput: data
+- metadata analysis 
+    - code: metadata-analysis
+    - input: data
+    - output: data; web app
+- GAN model and training 
+    - code: gan
+    - input: data
+    - output: data, generators
+- web application and token inference
+    - code: inference, nf2-web
+    - input: generator, metadata analysis
 
-## Project Structure
+<img src='docs/architecture.JPG' align="left">
 
-This project has four main parts: 
-- data collection (folder: opensea-pirate and data)
-- metadata analysis (folder: metadata-analysis)
-- GAN model and training (folder: gan, generators)
-- web application for trained model inference (folder: inference, nf2-web)
-
-Further information please check README.md under each section.
+For details of each module please check README.md under each section.
