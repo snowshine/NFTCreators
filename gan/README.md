@@ -34,7 +34,8 @@ Following is the example of default folder structure in Google Drive. The assume
 
 ## Example Training Output
 
-
+<img src="../docs/gan_training.jpg">
 
 
 ## Example Evaluation Output
+<img src="../docs/gan_evaluation.jpg">
