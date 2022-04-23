@@ -1,6 +1,5 @@
-###### Requirements without Version Specifiers ######
 requests
 boto3
+keras
 
-###### Requirements with Version Specifiers ######
 Flask==2.0.3
