@@ -72,7 +72,7 @@ A higher inception score indicates better-quality generated images, but we got v
 
 Same as the inception score, the Frechet Inception Distance (FID) score also uses the inception v3 model, but the score calculation method is different. The score uses both generated images and original images, and calculate the distance between real images and generated images using the Frechet distance. A lower FID score, with 0 as the best score, indicates more realistic images that match the statistical properties of real images. The common agreement is FID is consistent with human judgments and is more robust to noise than IS. Comparing to IS, our FID seems very good, normally range from 0.05 to 0, kind of hard to believe. From our evaluation result (as shown in the example below), sometimes the FID do reflect human judgments, but there are times it's out of the place.
 
-<img src="https://github.com/snowshine/NFTCreators/blob/main/docs/gan_evaluation.jpg">
+<img src="https://github.com/snowshine/NFTCreators/blob/main/docs/gan_evaluation.JPG">
 
 
 
