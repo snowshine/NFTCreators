@@ -58,7 +58,7 @@ GAN is hard to train with some well-known challenges like non-convergence. Since
 
 Due to the challenge of non-convergence and lack of overall loss function, there is no objective ways to assess the model performance. We mostly rely on subjective evaluation or manual inspections. 
 
-The common understanding of a GAN model is “good” when an equilibrium is reached between generator and discriminator, typically when the discriminator’s loss is around 0.5. We have saved both generator and discriminator's loss for each epoch and chart them after training. A sample chart is shown below which is an example that the generator lost its patient to be a good learner after 700 epochs. Loss charts give us some clues, but can’t determine the performance.
+The common understanding of a GAN model is “good” when an equilibrium is reached between generator and discriminator, typically when the discriminator’s loss is around 0.5. We have saved both generator and discriminator's loss for each epoch and chart them after training. A sample chart is shown below which is an example that the generator lost its patience to be a good learner after 700 epochs. Loss charts give us some clues, but can’t determine the performance.
 
 <img src="https://github.com/snowshine/NFTCreators/blob/main/docs/training_loss_chart.JPG">
 
