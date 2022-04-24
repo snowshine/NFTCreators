@@ -37,7 +37,7 @@ Following is a list of best practice we followed:
     - Using the Adam version of stochastic gradient descent (SGD)
     - Using Two Time-Scale Update Rule (TTUR): different learning rates for generator and discriminator
     - Tuning learning rate: start with 0.0002; Using beta1 momentum of 0.5 instead of the default of 0.9
--Training Process
+- Training Process:
     - Scale/normalize images from [0,255] to the range of [-1,1]    
     - Train the discriminator with separate batches of real and fake images
     - Using one-sided Label Smoothing to tune down discriminator to avoid overconfidence
