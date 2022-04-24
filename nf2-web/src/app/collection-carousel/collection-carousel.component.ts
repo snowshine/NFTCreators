@@ -12,9 +12,6 @@ import {GeneratorStore} from '../generate-input/store/types';
 export class CollectionCarouselComponent implements OnInit {
   @Input() searchTerm: string = '';
   collections$: Observable<GeneratorStore>;
-
-  collections: Array<string> = ['Bored Ape Yacht Club', 'Azuki', 'Mutant Ape Yacht Club', 'Meebits']
-    .filter((item) => item.startsWith(this.searchTerm));
   
   constructor(private store: Store<{ generator: GeneratorStore }>) { 
     this.collections$ = store.select('generator');
