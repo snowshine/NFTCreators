@@ -23,7 +23,7 @@ A plot of our 128X128 GAN model can be viewed here:
 - [generator](https://github.com/snowshine/NFTCreators/blob/main/docs/generator_plot.png)
 - [discriminator](https://github.com/snowshine/NFTCreators/blob/main/docs/discriminator_plot.png)
 
-We tuned our model with most of the DCGAN best practice and found most of them are beneficial to the training outcome, though some may need more experiments and tweaking before they start showing improvements. 
+We refined and improved our models with most of the DCGAN best practice with positive training outcome, though some may need more experiments and tweaking before they start showing improvements. 
 
 Following is a list of best practice we followed:
 - Generator/Discriminator:
@@ -78,5 +78,5 @@ Same as the inception score, the Frechet Inception Distance (FID) score also use
 
 ## Statement of Work
 
-Cindy works with the Generative Adversarial Networks (GANs) models including  building and tunning the models. She runs the training for all the NFT collections, evaluates the result after training, and select the generators for the web application to use.
+Cindy works with the Generative Adversarial Networks (GANs) models including  building and tuning the models. She runs the training for all the NFT collections, evaluates the result after training, and select the generators for the web application to use.
 
